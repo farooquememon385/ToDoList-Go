@@ -79,3 +79,8 @@ func displayTodos(todos []string) {
 	}
 	fmt.Println("--------")
 }
+
+// Remove an item from the to-do list
+func removeItem(todos []string, index int) []string {
+	return append(todos[:index], todos[index+1:]...)
+}
