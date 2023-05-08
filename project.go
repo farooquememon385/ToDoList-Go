@@ -84,3 +84,12 @@ func displayTodos(todos []string) {
 func removeItem(todos []string, index int) []string {
 	return append(todos[:index], todos[index+1:]...)
 }
+
+// Get the index from a string input
+func getIndex(indexStr string) int {
+	index, err := strconv.Atoi(indexStr)
+	if err != nil {
+		return -1
+	}
+	return index
+}
