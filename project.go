@@ -4,24 +4,68 @@ import (
 	"fmt"
 	"bufio"
 	"os"
+	"strconv"
 )
 
 //the to do list is implemented with file handling
-const todoFile = "todo.txt"
+const todoFileName = "todo.txt"
 
 func main(){
 	fmt.Println("#######################################")
 	fmt.Println("******** Welcome to To-Do List ********")
 	fmt.Println("#######################################")
 
+	// Load existing to-do items from file
+	todos := loadTodos()
+
+	// Display the current to-do list
+	fmt.Println("Current To-Do List:")
+	displayTodos(todos)
+
 
 	// Read user input and perform corresponding actions
 	scanner := bufio.NewScanner(os.Stdin)
+	for {
+		fmt.Print("Enter a command (add/remove/show/quit): ")
+		scanner.Scan()
+		command := scanner.Text()
 
-	fmt.Print("Enter a command (add/remove/show/quit): ")
-	scanner.Scan()
-	command := scanner.Text()
+		switch command {
+		case "add":
+			fmt.Print("Enter the to-do item: ")
+			scanner.Scan()
+			item := scanner.Text()
+			todos = append(todos, item)
+			fmt.Printf("Added '%s' to the to-do list.\n", item)
+		case "remove":
+			fmt.Print("Enter the index of the item to remove: ")
+			scanner.Scan()
+			indexStr := scanner.Text()
+			index := getIndex(indexStr)
 
+			if index >= 0 && index < len(todos) {
+				removedItem := todos[index]
+				todos = removeItem(todos, index)
+				fmt.Printf("Removed '%s' from the to-do list.\n", removedItem)
+			} else {
+				fmt.Println("Invalid index.")
+			}
+		case "show":
+			// Display the current to-do list
+			fmt.Println("Current To-Do List:")
+			displayTodos(todos)
+		case "quit":
+			// Save the to-do items to file before quitting
+			saveTodos(todos)
+			fmt.Println("To-do list saved. Exiting...")
+			return
+		default:
+			fmt.Println("Invalid command.")
+		}
+
+		// Display the updated to-do list
+		displayTodos(todos)
+	}
 
 }
 
