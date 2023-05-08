@@ -49,3 +49,24 @@ func loadTodos() []string {
 	fmt.Println("To-do list loaded from file.")
 	return todos
 }
+
+func saveTodos(todos []string) {
+	file, err := os.Create(todoFileName)
+	if err != nil {
+		fmt.Println("Error saving to-do list:", err)
+		return
+	}
+	defer file.Close()
+
+	writer := bufio.NewWriter(file)
+	for _, todo := range todos {
+		_, err := writer.WriteString(todo + "\n")
+		if err != nil {
+			fmt.Println("Error saving to-do list:", err)
+			return
+		}
+	}
+
+	writer.Flush()
+	fmt.Println("To-do list saved to file.")
+}
