@@ -70,3 +70,12 @@ func saveTodos(todos []string) {
 	writer.Flush()
 	fmt.Println("To-do list saved to file.")
 }
+
+// Display the current to-do list
+func displayTodos(todos []string) {
+	fmt.Println("--------")
+	for i, todo := range todos {
+		fmt.Printf("%d. %s\n", i, todo)
+	}
+	fmt.Println("--------")
+}
