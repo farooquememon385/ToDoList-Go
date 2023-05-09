@@ -6,26 +6,38 @@
 
 ### expected output
 
+<hr>
+******** Welcome to To-Do List ********<br>
 
-******** Welcome to To-Do List ********
-To-do list loaded from file.
-Current To-Do List:
+To-do list loaded from file.<br>
+Current To-Do List:<br>
+<br>
 --------
 0. Project
 --------
+<br>
 Enter a command (add/remove/show/quit): add
+<br>
 Enter the to-do item: assignment
+<br>
 Added 'assignment' to the to-do list.
+
 --------
 0. Project
 1. assignment
 --------
+<br>
 Enter a command (add/remove/show/quit): remove
+<br>
 Enter the index of the item to remove: 1
+<br>
 Removed 'assignment' from the to-do list.
+<br>
 --------
 0. Project
 --------
+<br>
 Enter a command (add/remove/show/quit): quit
-To-do list saved to file.
+<br>
+To-do list saved to file.<br>
 To-do list saved. Exiting...
