@@ -117,6 +117,10 @@ func saveTodos(todos []string) {
 
 // Display the current to-do list
 func displayTodos(todos []string) {
+	if len(todos) == 0 {
+		fmt.Println("No items in the to-do list.")
+		return
+		}
 	fmt.Println("--------")
 	for i, todo := range todos {
 		fmt.Printf("%d. %s\n", i, todo)
