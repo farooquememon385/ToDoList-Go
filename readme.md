@@ -6,9 +6,8 @@
 
 ### expected output
 
-#######################################
+
 ******** Welcome to To-Do List ********
-#######################################
 To-do list loaded from file.
 Current To-Do List:
 --------
