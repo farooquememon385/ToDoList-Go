@@ -7,7 +7,7 @@
 ### expected output
 
 <hr>
-******** Welcome to To-Do List ********<br>
+******** Welcome to To-Do List Project ********<br>
 
 To-do list loaded from file.<br>
 Current To-Do List:<br>
